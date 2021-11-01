@@ -1,0 +1,10 @@
+# javascript 
+node_modules
+package-lock.json
+
+
+# flask
+virtual/
+venv/
+.env
+
