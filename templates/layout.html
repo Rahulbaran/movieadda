@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rahul Kumar">
+    <meta name="keywords" content="movieadda, movies, web series, tvshows, search movie">
+    <meta name="description" content="A simple app which lets you search for movies,tvshows etc. and get a detailed information about them.">
+    <meta name="robots" content="index, follow">
+
+    <title>{{title}} | movieadd</title>
+
+    <!------------------------- Favicon -------------------------->
+    <link rel="shortcut icon" href="{{url_for('static',filename='app-images/movie.png')}}" type="image/x-icon">
+
+
+
+    {% block stylesheet %}
+    {% endblock %}
+    
+</head>
+<body>
+    {% block body  %}
+    {% endblock %}
+
+    {% block script %}
+    {% endblock %}
+</body>
+</html>

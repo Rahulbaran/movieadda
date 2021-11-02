@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+{% endblock stylesheet %}
+
+
+{% block body %}
+
+<form  method="post" autocomplete="off" class="search__form">
+    {{form.hidden_tag()}}
+
+    <div class="form__group">
+
+        {{form.name.label}}
+        {{form.name(placeholder="movie name")}}
+        <span class="field__error"></span>
+    </div>
+    <div class="form__submit__group">
+        {{form.submit}}
+    </div>
+
+</form>
+
+
+
+<main class="movies__list">
+    
+</main>
+{% endblock body %}
+
+{% block script %}
+<script src="{{url_for('static', filename='js/home.js')}}"></script>
+{% endblock script %}
