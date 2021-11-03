@@ -1,10 +1,10 @@
-import os
+import os, json
 from os import environ
 
 import requests as req
 from requests.exceptions import ConnectionError, HTTPError
-from flask import Flask, render_template, request, url_for, jsonify
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request
+
 
 from config import DevConfig, ProdConfig, TestConfig
 from form import SearchForm
@@ -21,7 +21,6 @@ elif env == "production":
 else :
     app.config.from_object(TestConfig)
 
-db = SQLAlchemy(app)
 
 
 
@@ -37,16 +36,17 @@ def home():
 def getInfo(movieName):
     url = f'https://api.themoviedb.org/3/search/movie?api_key={environ.get("TMDB_API_KEY")}'
     try:
-        res = req.get(url, params={'query' : movieName, 'page' : 1, 'include_adult' : 'false'})
+        res = req.get(url, params={'query' : movieName, 'page' : 1})
         res.raise_for_status()
     except HTTPError:
-        return {'code' : 404, 'msg' : 'Did not get the correct result'}
+        raise HTTPError
     except ConnectionError:
-        return {'code' : 500, 'msg' : 'Connection Issue'}
+        raise ConnectionError
     except Exception:
-        return {'code' : 500, 'error' : 'Something unexpected occured'}
+        raise Exception('Something went wrong')
     else:
         return res.json()
+
 
 
 @app.route('/getMovie', methods=["POST"])
@@ -56,8 +56,11 @@ def getMovie():
     return res
 
 
-
-
+@app.route('/getGenres')
+def getGenres():
+    with open("genres.json","r") as f:
+        genres = json.load(f)
+    return genres
 
 
 
