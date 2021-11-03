@@ -1,0 +1,1 @@
+{"version":3,"sources":["layout.css"],"names":[],"mappings":"AAAA,KAEE,qBAAsB,CADtB,cAAe,CAEf,WACF,CAEA,iBAKE,kBAAmB,CAFnB,QAAS,CACT,SAEF","file":"layout.css","sourcesContent":["html {\n  font-size: 1rem;\n  box-sizing: border-box;\n  height: 100%;\n}\n\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n}"]}

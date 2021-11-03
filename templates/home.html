@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+{% endblock stylesheet %}
+
+
+{% block body %}
+
+<h1>Movies</h1>
+
+<form  method="post" autocomplete="off" class="search__form">
+    {{form.hidden_tag()}}
+
+    <div class="form__group">
+        {{form.name(placeholder="movie name")}}
+        <span class="field__error"></span>
+    </div>
+    <div class="form__submit__group">
+        {{form.submit}}
+    </div>
+
+</form>
+
+
+
+<main class="movie__cards">
+    <!-- <div class="movie__card">
+        <div class="movie__card__header">
+            <img src="https://image.tmdb.org/t/p/w300/ezitJY9RTk3ReXc1nWhXjmU9cz0.jpg" alt="Movie Poster" class="movie__poster">
+            <p class="movie__vote">98%</p>
+        </div>
+
+        <div class="movie__card__body"> 
+            <h3>Movie Title</h3>
+            <span>Rab ne bna di jodi</span>
+        </div>
+
+        <div class="movie__card__footer">
+            <div class="movie__release__date">
+                <h3>Release Date</h3>
+                <span>15th Nov 2010</span>
+            </div>
+           
+            <div class="movie__genre">
+                <h3>Genre</h3>
+                <span>Romance, Drama, Comedy</span>
+            </div>
+
+            <div class="movie__overview">
+                <h3>Overview</h3>
+                <p>
+                    This is the first feature made in the “Monpa" dialect of the Indo-Tibetan branch of languages, spoken in the hilly Himalayan region, bordering Tibet and Bhutan, in the districts West Kameng & Tawang of Arunachal Pradesh in India. This film deals with polyandry in a small society called Brokpas, a society of "Yak Shephards" who live in the mountain slopes of the Himalayan range.
+                </p>
+            </div>
+        </div>
+
+    </div> -->
+</main>
+{% endblock body %}
+
+{% block script %}
+<script src="{{url_for('static', filename='js/home.js')}}"></script>
+{% endblock script %}
